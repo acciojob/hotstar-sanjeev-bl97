@@ -42,11 +42,11 @@ public class SubscriptionService {
 
         Integer cost = 0;
         if(subscriptionType.equals(SubscriptionType.BASIC))
-            cost = 500 + 200 * noOfScreens;
+            cost = 500 + (200 * noOfScreens);
         else if (subscriptionType.equals(SubscriptionType.PRO))
-            cost = 800 + 250 * noOfScreens;
+            cost = 800 + (250 * noOfScreens);
         else
-            cost = 1000 + 350 * noOfScreens;
+            cost = 1000 + (350 * noOfScreens);
 
         return cost;
     }
@@ -67,11 +67,11 @@ public class SubscriptionService {
 
         else if (subscriptionType.equals(SubscriptionType.PRO)){
             subscription.setSubscriptionType(SubscriptionType.ELITE);
-            cost = (1000 + 350 * subscription.getNoOfScreensSubscribed()) - subscription.getTotalAmountPaid();
+            cost = (1000 + (350 * subscription.getNoOfScreensSubscribed())) - subscription.getTotalAmountPaid();
         }
         else{
             subscription.setSubscriptionType(SubscriptionType.PRO);
-            cost = (800 + 250 * subscription.getNoOfScreensSubscribed()) - subscription.getTotalAmountPaid();
+            cost = (800 + (250 * subscription.getNoOfScreensSubscribed())) - subscription.getTotalAmountPaid();
         }
 
 
