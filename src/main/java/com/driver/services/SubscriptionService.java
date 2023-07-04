@@ -35,10 +35,7 @@ public class SubscriptionService {
         subscription.setSubscriptionType(subscriptionType);
         subscription.setNoOfScreensSubscribed(noOfScreens);
 
-        subscription.setUser(user);
-        user.setSubscription(subscription);
 
-        userRepository.save(user);
 
         Integer cost = 0;
         if(subscriptionType.equals(SubscriptionType.BASIC))
@@ -47,6 +44,12 @@ public class SubscriptionService {
             cost = 800 + (250 * noOfScreens);
         else
             cost = 1000 + (350 * noOfScreens);
+
+        subscription.setTotalAmountPaid(cost);
+        subscription.setUser(user);
+        user.setSubscription(subscription);
+
+        userRepository.save(user);
 
         return cost;
     }
