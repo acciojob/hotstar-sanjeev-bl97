@@ -90,7 +90,7 @@ public class SubscriptionService {
         for(Subscription subscription : subscriptions)
             cost += subscription.getTotalAmountPaid();
 
-        return null;
+        return cost;
     }
 
 }
